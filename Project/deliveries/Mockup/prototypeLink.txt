@@ -1,0 +1,4 @@
+# Link para Mockup: https://www.figma.com/file/AkI5sd0V9oKYAiAQUIfM4e/Untitled?type=design&node-id=0%3A1&mode=design&t=cZfoghrjtPcjoEXx-1
+
+# Instructions:
+	In the upper right corner, you can find a play button, next to zoom selection, click on it, wait for the 	screen to load, and try the prototype by yourself!  

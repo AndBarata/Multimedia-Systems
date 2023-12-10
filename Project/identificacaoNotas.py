@@ -9,6 +9,7 @@ import time
 audioData = []
 
 # Identify if the audio data is noise or not
+# TODO : Add ZCR threshold
 def identifyNoise(audioData, fs):
     energy_threshold = 10e-5
 
@@ -19,9 +20,8 @@ def identifyNoise(audioData, fs):
         return False # Not noise
 
 # Determins the fundamental frequency of the audio data
-def calculateF0(audioData, fs):
-    f0_min = 100  # Hz - Bellow A2
-    f0_max = 900  # Hz - Highrt than A5
+def calculateF0(audioData, fs, f0_min=100, f0_max=900):
+
 
     # Calculate the autocorrelation of the signal
     correlation = np.correlate(audioData, audioData, mode='full')
@@ -53,12 +53,27 @@ def get_audio_data(fs, audio_queue, event):
 
 # Process audio data
 def process_audio_data(fs, audio_queue, event):
+    f0_min = 100  # Hz - Bellow A2
+    f0_max = 900  # Hz - Highrt than A5
     while True:
+        # Wait for audio data
         audio_data = audio_queue.get()
+
+        # Filters by noise
         if identifyNoise(audio_data, fs): # If the audio data is noise, ignore it
             continue
-        note = calculateF0(audio_data, fs)  
+        
+        # Calculates the fundamental frequency
+        note = calculateF0(audio_data, fs, f0_min, f0_max)
+
+        # Filters by the fundamental frequency
+        if note < f0_min or note > f0_max:
+            continue
+        
+        # Display the fundamental frequency
         print(" Fundamental frequency: {:.2f}".format(note))
+
+        # Wait for new audio data
         event.clear()
 
 # Main function
