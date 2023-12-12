@@ -1,0 +1,36 @@
+PerfectPitch - Low-Fidelity Prototype Test Summary
+
+# Objectives of the Tests:
+    - User Feedback Collection:
+        - Gather insights from users regarding their experience with the Low-Fidelity Prototype (LFP).
+    
+    - Usability Evaluation:
+        - Assess the ease of use and overall user experience while interacting with the prototype.
+    
+    - Functionality Testing:
+        - Verify that the essential features and functions of the app are working as intended.
+    
+    - Task Flow and Navigation Assessment:
+        - Evaluate the efficiency and intuitiveness of the user flow and navigation within the prototype.
+    
+    - Error Identification:
+        - Identify potential issues or confusion points that users may encounter during interaction.
+
+# Participants Recruitment:
+    - Engaged with 5 colleagues to test the LFP and gather feedback. Their insights were instrumental in enhancing the visual appeal and user-friendliness of our mockup.
+
+    - Extended user testing to include older individuals with limited technology exposure. Both users, after a 5-minute exploration, found the app easy to navigate and appreciated its aesthetically pleasing design.
+
+    - The submitted LFP already incorporates some of their feedback, with the exception of a suggested dark mode, currently under consideration.
+
+# Real Scenarios:
+    - Invited a musician to use the LFP and evaluate its relevance in their daily work. The musician described the app as "fun" and highlighted its relevance in helping her tune her violin pitch while playing.
+
+# Conclusion:
+    - These tests provided valuable insights that guided improvements to the prototype, ensuring it aligns with user expectations and practical use cases.
+    - Ongoing evaluation, including considerations for user suggestions like a dark mode, remains an integral part of our development process.
+
+# Invitation to Test:
+    - We invite you to test the LFP by yourself and provide feedback: [PerfectPitch Prototype](https://www.figma.com/file/AkI5sd0V9oKYAiAQUIfM4e/Untitled?type=design&node-id=0%3A1&mode=design&t=cZfoghrjtPcjoEXx-1)
+    - In the directory of this folder, you can find a presentation of the app and several images describing the LFP.
+    - We advise you to click on the link and then on the play button in the upper right corner to test the prototype.
