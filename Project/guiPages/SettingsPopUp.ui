@@ -33,8 +33,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>390</width>
-     <height>360</height>
+     <width>360</width>
+     <height>340</height>
     </rect>
    </property>
    <property name="maximumSize">
@@ -275,6 +275,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <width>150</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
