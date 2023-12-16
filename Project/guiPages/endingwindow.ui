@@ -34,10 +34,10 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="sheet_ready_label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>30</y>
       <width>400</width>
       <height>50</height>
@@ -53,10 +53,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="download">
+   <widget class="QLabel" name="download_label">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>80</y>
       <width>100</width>
       <height>20</height>
@@ -74,10 +74,10 @@ font: 12pt &quot;Segoe UI&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="sendtoemail">
+   <widget class="QLabel" name="sendtoemail_label">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>220</x>
       <y>110</y>
       <width>150</width>
       <height>20</height>
@@ -95,10 +95,10 @@ text-decoration: underline;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="thanks">
+   <widget class="QTextEdit" name="thanks_message">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>140</y>
       <width>401</width>
       <height>131</height>
@@ -118,7 +118,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Thank you for using&lt;br /&gt; Perfect&lt;/span&gt;&lt;span style=&quot; font-size:28pt; font-weight:700; color:#2774a7;&quot;&gt;Pitch&lt;/span&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="feedback">
+   <widget class="QLabel" name="feedback_label">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -131,10 +131,48 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
-     <string>We appreciate your feedback:</string>
+     <string>  We appreciate your feedback:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logo">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>0</y>
+      <width>81</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../LFP/images/images/icon_whiteBackground.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="star_rating_slider">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>290</y>
+      <width>160</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>5</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>
