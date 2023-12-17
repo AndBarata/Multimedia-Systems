@@ -1,0 +1,15 @@
+Perfect Pitch HFP Instructions
+	
+    To run the application, you are required to have MACOS Sierra or higher.
+    Double-click on the app "PerfectPitch."
+    Enjoy yourself! :)
+
+
+Folder Organisation
+    We invite you to check our git: https://github.com/AndBarata/Multimedia-Systems/tree/main/Project
+    "Classes" contains the scripts used to implement the HFP.
+    "Images" contains the assets used in the HFP.
+    "guiPages" contains the .ui files used to build the GUI.
+    "deliveries" includes artifacts.
+    "dist" has the executable files.
+    

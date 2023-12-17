@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from main import perfectPitch
+from main import perfectPitch, resource_path
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow, initialWindow):
@@ -34,7 +34,7 @@ class Ui_mainWindow(object):
 "color: black;")
         self.defenitionsButton.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../guiPages/../images/defenitionsLogo.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(resource_path("./images/defenitionsLogo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.defenitionsButton.setIcon(icon)
         self.defenitionsButton.setIconSize(QtCore.QSize(25, 25))
         self.defenitionsButton.setObjectName("defenitionsButton")
@@ -81,7 +81,7 @@ class Ui_mainWindow(object):
 "color: black;")
         self.defenitionsButton_2.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOff.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOff.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.defenitionsButton_2.setIcon(icon1)
         self.defenitionsButton_2.setIconSize(QtCore.QSize(120, 120))
         self.defenitionsButton_2.setObjectName("defenitionsButton_2")
@@ -96,14 +96,14 @@ class Ui_mainWindow(object):
 "color: black;")
         self.logoButton.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../guiPages/../images/icon_whiteBackground.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(resource_path("./images/icon_whiteBackground.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.logoButton.setIcon(icon2)
         self.logoButton.setIconSize(QtCore.QSize(70, 70))
         self.logoButton.setObjectName("logoButton")
         self.gClave = QtWidgets.QLabel(self.initialwindow_frame)
         self.gClave.setGeometry(QtCore.QRect(50, 235, 50, 95))
         self.gClave.setText("")
-        self.gClave.setPixmap(QtGui.QPixmap("../guiPages/../images/gClave.jpg"))
+        self.gClave.setPixmap(QtGui.QPixmap(resource_path("./images/gClave.jpg")))
         self.gClave.setScaledContents(True)
         self.gClave.setObjectName("gClave")
         self.defenitionsButton_3 = QtWidgets.QPushButton(self.initialwindow_frame)
@@ -192,12 +192,12 @@ class Ui_mainWindow(object):
         if self.recordingLabel.text() == "Recording":
             self.recordingLabel.setText("Not recording")
             icon1 = QtGui.QIcon()
-            icon1.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOff.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOff.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.defenitionsButton_2.setIcon(icon1)
         else :
             self.recordingLabel.setText("Recording")
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOn.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOn.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.defenitionsButton_2.setIcon(icon)
 
 

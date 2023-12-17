@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import resource_path
 
 class Ui_initialWindow(object):
     def setupUi(self, initialWindow):
@@ -31,7 +31,7 @@ class Ui_initialWindow(object):
         self.logo = QtWidgets.QLabel(self.initialwindow_frame)
         self.logo.setGeometry(QtCore.QRect(200, 50, 201, 200))
         self.logo.setText("")
-        self.logo.setPixmap(QtGui.QPixmap("../guiPages/../images/icon_whiteBackground.png"))
+        self.logo.setPixmap(QtGui.QPixmap(resource_path("./images/icon_whiteBackground.png")))
         self.logo.setScaledContents(True)
         self.logo.setObjectName("logo")
         self.startButton = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.startButtonClicked(initialWindow))

@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import resource_path
 
 class Ui_aboutPerfectPitch(object):
     def setupUi(self, aboutPerfectPitch):
@@ -41,7 +41,7 @@ class Ui_aboutPerfectPitch(object):
 "color: black;")
         self.logoButton.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../guiPages/../images/icon_blueBackground.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(resource_path("./images/icon_blueBackground.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.logoButton.setIcon(icon)
         self.logoButton.setIconSize(QtCore.QSize(90, 90))
         self.logoButton.setObjectName("logoButton")

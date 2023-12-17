@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '../guiPages/emailPopUp.ui'
+# Form implementation generated from reading ui file '..\\guiPages\\emailPopUp.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import resource_path
 
 class Ui_emailPopUp(object):
     def setupUi(self, emailPopUp):
@@ -33,7 +33,7 @@ class Ui_emailPopUp(object):
 "color: black;")
         self.logoButton.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../guiPages/../images/icon_blueBackground.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(resource_path("./images/icon_blueBackground.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.logoButton.setIcon(icon)
         self.logoButton.setIconSize(QtCore.QSize(90, 90))
         self.logoButton.setObjectName("logoButton")
@@ -72,14 +72,14 @@ class Ui_emailPopUp(object):
     def retranslateUi(self, emailPopUp):
         _translate = QtCore.QCoreApplication.translate
         emailPopUp.setWindowTitle(_translate("emailPopUp", "Form"))
-        self.textEdit.setHtml(_translate("emailPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+        self.textEdit.setHtml(_translate("emailPopUp", "<!DOCTYPE HTML PUBLIC \"-\\\\W3C\\\\DTD HTML 4.0\\\\EN\" \"http:\\\\www.w3.org\\TR\\REC-html40\\strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" \\><meta charset=\"utf-8\" \\><style type=\"text\\css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<\\style><\\head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br \\><\\p><\\body><\\html>"))
         self.label.setText(_translate("emailPopUp", "Email:"))
         self.pushButton.setText(_translate("emailPopUp", "Send"))
 
