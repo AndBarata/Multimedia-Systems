@@ -1,10 +1,8 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
-import PerfectPitch
+from PerfectPitch import PerfectPitch
 
+perfectPitch = PerfectPitch()
 
-if __name__ == '__main__':
-    global perfectPitch
-    perfectPitch = PerfectPitch(sys.argv)
-    sys.exit(perfectPitch.exec_())
-    
+if __name__ == "__main__":
+    # Initializes GUI
+    print("Program started")
+    perfectPitch.startInitialWindow()

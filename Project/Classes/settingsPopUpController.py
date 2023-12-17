@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '../guiPages/SettingsPopUp.ui'
+# Form implementation generated from reading ui file '../guiPages/settingsPopUp.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -24,53 +24,6 @@ class Ui_SettingsPopUp(object):
         self.settings_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.settings_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.settings_frame.setObjectName("settings_frame")
-        self.settings = QtWidgets.QTextEdit(self.settings_frame)
-        self.settings.setGeometry(QtCore.QRect(10, 10, 140, 40))
-        self.settings.setMouseTracking(True)
-        self.settings.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.settings.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
-        self.settings.setObjectName("settings")
-        self.f0 = QtWidgets.QTextEdit(self.settings_frame)
-        self.f0.setGeometry(QtCore.QRect(10, 60, 150, 30))
-        self.f0.setAutoFillBackground(False)
-        self.f0.setStyleSheet("background-color: rgb(7, 73, 91);")
-        self.f0.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f0.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.f0.setObjectName("f0")
-        self.processing_window = QtWidgets.QTextEdit(self.settings_frame)
-        self.processing_window.setGeometry(QtCore.QRect(10, 120, 150, 30))
-        self.processing_window.setAutoFillBackground(False)
-        self.processing_window.setStyleSheet("background-color: rgb(7, 73, 91);")
-        self.processing_window.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.processing_window.setObjectName("processing_window")
-        self.minfreq = QtWidgets.QTextEdit(self.settings_frame)
-        self.minfreq.setGeometry(QtCore.QRect(10, 180, 150, 30))
-        self.minfreq.setAutoFillBackground(False)
-        self.minfreq.setStyleSheet("background-color: rgb(7, 73, 91);")
-        self.minfreq.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.minfreq.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.minfreq.setObjectName("minfreq")
-        self.maxfreq = QtWidgets.QTextEdit(self.settings_frame)
-        self.maxfreq.setGeometry(QtCore.QRect(10, 240, 150, 30))
-        self.maxfreq.setAutoFillBackground(False)
-        self.maxfreq.setStyleSheet("background-color: rgb(7, 73, 91);")
-        self.maxfreq.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.maxfreq.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.maxfreq.setObjectName("maxfreq")
-        self.f0_input = QtWidgets.QTextEdit(self.settings_frame)
-        self.f0_input.setGeometry(QtCore.QRect(200, 60, 150, 30))
-        self.f0_input.setAutoFillBackground(False)
-        self.f0_input.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.f0_input.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.f0_input.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.f0_input.setObjectName("f0_input")
-        self.processing_window_input = QtWidgets.QTextEdit(self.settings_frame)
-        self.processing_window_input.setGeometry(QtCore.QRect(200, 120, 150, 30))
-        self.processing_window_input.setAutoFillBackground(False)
-        self.processing_window_input.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.processing_window_input.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.processing_window_input.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.processing_window_input.setObjectName("processing_window_input")
         self.minfreq_slider = QtWidgets.QSlider(self.settings_frame)
         self.minfreq_slider.setGeometry(QtCore.QRect(200, 180, 150, 30))
         self.minfreq_slider.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -82,86 +35,103 @@ class Ui_SettingsPopUp(object):
         self.maxfreq_slider.setObjectName("maxfreq_slider")
         self.saveButton = QtWidgets.QPushButton(self.settings_frame)
         self.saveButton.setGeometry(QtCore.QRect(35, 290, 100, 32))
-        self.saveButton.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.saveButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: black;\n"
+"font: 13pt \"Arial\";\n"
+"border-color: rgb(38, 73, 89);")
         self.saveButton.setObjectName("saveButton")
         self.cancelButton = QtWidgets.QPushButton(self.settings_frame)
         self.cancelButton.setGeometry(QtCore.QRect(220, 290, 100, 32))
-        self.cancelButton.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.cancelButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-color: rgb(38, 73, 89);\n"
+"color: black;\n"
+"font: 13pt \"Arial\";")
         self.cancelButton.setObjectName("cancelButton")
+        self.label_4 = QtWidgets.QLabel(self.settings_frame)
+        self.label_4.setGeometry(QtCore.QRect(20, 60, 150, 30))
+        self.label_4.setStyleSheet("font: 13pt \"Arial\";\n"
+"background-color: rgb(38, 73, 89);\n"
+"border-color: rgb(38, 72, 89);")
+        self.label_4.setFrameShape(QtWidgets.QFrame.Box)
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.textEdit_2 = QtWidgets.QTextEdit(self.settings_frame)
+        self.textEdit_2.setGeometry(QtCore.QRect(200, 60, 150, 30))
+        self.textEdit_2.setStyleSheet("font: 13pt \"Arial\";\n"
+"color: black;\n"
+"border-color: rgb(38, 72, 89);")
+        self.textEdit_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.textEdit_2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.textEdit_2.setObjectName("textEdit_2")
+        self.label_5 = QtWidgets.QLabel(self.settings_frame)
+        self.label_5.setGeometry(QtCore.QRect(20, 20, 141, 21))
+        self.label_5.setStyleSheet("color: black;\n"
+"font: 18pt \"Arial\";")
+        self.label_5.setObjectName("label_5")
+        self.label_6 = QtWidgets.QLabel(self.settings_frame)
+        self.label_6.setGeometry(QtCore.QRect(20, 240, 150, 30))
+        self.label_6.setStyleSheet("font: 13pt \"Arial\";\n"
+"background-color: rgb(38, 73, 89);\n"
+"border-color: rgb(38, 72, 89);")
+        self.label_6.setFrameShape(QtWidgets.QFrame.Box)
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.label_7 = QtWidgets.QLabel(self.settings_frame)
+        self.label_7.setGeometry(QtCore.QRect(20, 120, 150, 30))
+        self.label_7.setStyleSheet("font: 13pt \"Arial\";\n"
+"background-color: rgb(38, 73, 89);\n"
+"border-color: rgb(38, 72, 89);")
+        self.label_7.setFrameShape(QtWidgets.QFrame.Box)
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_7.setObjectName("label_7")
+        self.label_8 = QtWidgets.QLabel(self.settings_frame)
+        self.label_8.setGeometry(QtCore.QRect(20, 180, 150, 30))
+        self.label_8.setStyleSheet("font: 13pt \"Arial\";\n"
+"background-color: rgb(38, 73, 89);\n"
+"border-color: rgb(38, 72, 89);")
+        self.label_8.setFrameShape(QtWidgets.QFrame.Box)
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.textEdit_3 = QtWidgets.QTextEdit(self.settings_frame)
+        self.textEdit_3.setGeometry(QtCore.QRect(200, 120, 150, 30))
+        self.textEdit_3.setStyleSheet("font: 13pt \"Arial\";\n"
+"color: black;\n"
+"border-color: rgb(38, 72, 89);")
+        self.textEdit_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.textEdit_3.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.textEdit_3.setObjectName("textEdit_3")
 
         self.retranslateUi(SettingsPopUp)
         QtCore.QMetaObject.connectSlotsByName(SettingsPopUp)
 
     def retranslateUi(self, SettingsPopUp):
         _translate = QtCore.QCoreApplication.translate
-
         SettingsPopUp.setWindowTitle(_translate("SettingsPopUp", "SettingsPopUp"))
-        self.settings.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:14pt; font-weight:700; color:#ffffff;\">Settings</span></p></body></html>"))
-        self.f0.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:10pt; color:#ffffff;\">Fundamental frequency</span></p></body></html>"))
-        self.processing_window.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:10pt; color:#ffffff;\">Processing window</span></p></body></html>"))
-        self.minfreq.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:10pt; color:#ffffff;\">Minimum frequency</span></p></body></html>"))
-        self.maxfreq.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:10pt; color:#ffffff;\">Maximum frequency</span></p></body></html>"))
-        self.f0_input.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:10pt; color:#000000;\">44000Hz</span></p></body></html>"))
-        self.processing_window_input.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe UI\'; font-size:9pt;\">1sec</span></p></body></html>"))
         self.saveButton.setText(_translate("SettingsPopUp", "Save"))
         self.cancelButton.setText(_translate("SettingsPopUp", "Cancel"))
+        self.label_4.setText(_translate("SettingsPopUp", "Sample Frequency"))
+        self.textEdit_2.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1600 Hz</p></body></html>"))
+        self.label_5.setText(_translate("SettingsPopUp", "Settings"))
+        self.label_6.setText(_translate("SettingsPopUp", "Max. Frequency"))
+        self.label_7.setText(_translate("SettingsPopUp", "Window Size"))
+        self.label_8.setText(_translate("SettingsPopUp", "Min. Frequency"))
+        self.textEdit_3.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">30 ms</p></body></html>"))
 
-# Actions
-        #self.saveButton.clicked.connect(self.pressSaveButton)
-        #self.cancelButton.clicked.connect(self.pressCancelButton)
 
-
-
-# Delete main
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
