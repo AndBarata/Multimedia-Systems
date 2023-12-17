@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import perfectPitch
+import numpy as np
 
 class Ui_SettingsPopUp(object):
     def setupUi(self, SettingsPopUp):
@@ -29,18 +30,27 @@ class Ui_SettingsPopUp(object):
         self.minfreq_slider.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.minfreq_slider.setOrientation(QtCore.Qt.Horizontal)
         self.minfreq_slider.setObjectName("minfreq_slider")
+        self.minfreq_slider.setMinimum(self.toLogScale(40))
+        self.minfreq_slider.setMaximum(self.toLogScale(10000))
+        self.minfreq_slider.setTickInterval(1)
+        
+
         self.maxfreq_slider = QtWidgets.QSlider(self.settings_frame)
         self.maxfreq_slider.setGeometry(QtCore.QRect(200, 240, 150, 30))
         self.maxfreq_slider.setOrientation(QtCore.Qt.Horizontal)
         self.maxfreq_slider.setObjectName("maxfreq_slider")
-        self.saveButton = QtWidgets.QPushButton(self.settings_frame)
+        self.maxfreq_slider.setMinimum(self.toLogScale(40))
+        self.maxfreq_slider.setMaximum(self.toLogScale(10000))
+        self.maxfreq_slider.setTickInterval(1)
+
+        self.saveButton = QtWidgets.QPushButton(self.settings_frame, clicked=lambda: self.saveButtonClicked(SettingsPopUp))
         self.saveButton.setGeometry(QtCore.QRect(35, 290, 100, 32))
         self.saveButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: black;\n"
 "font: 13pt \"Arial\";\n"
 "border-color: rgb(38, 73, 89);")
         self.saveButton.setObjectName("saveButton")
-        self.cancelButton = QtWidgets.QPushButton(self.settings_frame)
+        self.cancelButton = QtWidgets.QPushButton(self.settings_frame, clicked=lambda: self.cancelButtonClicked(SettingsPopUp))
         self.cancelButton.setGeometry(QtCore.QRect(220, 290, 100, 32))
         self.cancelButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-color: rgb(38, 73, 89);\n"
@@ -51,18 +61,12 @@ class Ui_SettingsPopUp(object):
         self.label_4.setGeometry(QtCore.QRect(20, 60, 150, 30))
         self.label_4.setStyleSheet("font: 13pt \"Arial\";\n"
 "background-color: rgb(38, 73, 89);\n"
-"border-color: rgb(38, 72, 89);")
+"border-color: rgb(38, 72, 89);\n"
+"color: white;\n"
+"")
         self.label_4.setFrameShape(QtWidgets.QFrame.Box)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        self.textEdit_2 = QtWidgets.QTextEdit(self.settings_frame)
-        self.textEdit_2.setGeometry(QtCore.QRect(200, 60, 150, 30))
-        self.textEdit_2.setStyleSheet("font: 13pt \"Arial\";\n"
-"color: black;\n"
-"border-color: rgb(38, 72, 89);")
-        self.textEdit_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.textEdit_2.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.textEdit_2.setObjectName("textEdit_2")
         self.label_5 = QtWidgets.QLabel(self.settings_frame)
         self.label_5.setGeometry(QtCore.QRect(20, 20, 141, 21))
         self.label_5.setStyleSheet("color: black;\n"
@@ -72,7 +76,9 @@ class Ui_SettingsPopUp(object):
         self.label_6.setGeometry(QtCore.QRect(20, 240, 150, 30))
         self.label_6.setStyleSheet("font: 13pt \"Arial\";\n"
 "background-color: rgb(38, 73, 89);\n"
-"border-color: rgb(38, 72, 89);")
+"border-color: rgb(38, 72, 89);\n"
+"color: white;\n"
+"")
         self.label_6.setFrameShape(QtWidgets.QFrame.Box)
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
@@ -80,7 +86,9 @@ class Ui_SettingsPopUp(object):
         self.label_7.setGeometry(QtCore.QRect(20, 120, 150, 30))
         self.label_7.setStyleSheet("font: 13pt \"Arial\";\n"
 "background-color: rgb(38, 73, 89);\n"
-"border-color: rgb(38, 72, 89);")
+"border-color: rgb(38, 72, 89);\n"
+"color: white;\n"
+"")
         self.label_7.setFrameShape(QtWidgets.QFrame.Box)
         self.label_7.setAlignment(QtCore.Qt.AlignCenter)
         self.label_7.setObjectName("label_7")
@@ -88,18 +96,18 @@ class Ui_SettingsPopUp(object):
         self.label_8.setGeometry(QtCore.QRect(20, 180, 150, 30))
         self.label_8.setStyleSheet("font: 13pt \"Arial\";\n"
 "background-color: rgb(38, 73, 89);\n"
-"border-color: rgb(38, 72, 89);")
+"border-color: rgb(38, 72, 89);\n"
+"color: white;\n"
+"")
         self.label_8.setFrameShape(QtWidgets.QFrame.Box)
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
         self.label_8.setObjectName("label_8")
-        self.textEdit_3 = QtWidgets.QTextEdit(self.settings_frame)
-        self.textEdit_3.setGeometry(QtCore.QRect(200, 120, 150, 30))
-        self.textEdit_3.setStyleSheet("font: 13pt \"Arial\";\n"
-"color: black;\n"
-"border-color: rgb(38, 72, 89);")
-        self.textEdit_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.textEdit_3.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.textEdit_3.setObjectName("textEdit_3")
+        self.sampleFreqText = QtWidgets.QTextEdit(self.settings_frame)
+        self.sampleFreqText.setGeometry(QtCore.QRect(200, 60, 150, 30))
+        self.sampleFreqText.setObjectName("sampleFreqText")
+        self.windowSizeText = QtWidgets.QTextEdit(self.settings_frame)
+        self.windowSizeText.setGeometry(QtCore.QRect(200, 120, 150, 30))
+        self.windowSizeText.setObjectName("windowSizeText")
 
         self.retranslateUi(SettingsPopUp)
         QtCore.QMetaObject.connectSlotsByName(SettingsPopUp)
@@ -110,27 +118,34 @@ class Ui_SettingsPopUp(object):
         self.saveButton.setText(_translate("SettingsPopUp", "Save"))
         self.cancelButton.setText(_translate("SettingsPopUp", "Cancel"))
         self.label_4.setText(_translate("SettingsPopUp", "Sample Frequency"))
-        self.textEdit_2.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1600 Hz</p></body></html>"))
         self.label_5.setText(_translate("SettingsPopUp", "Settings"))
         self.label_6.setText(_translate("SettingsPopUp", "Max. Frequency"))
         self.label_7.setText(_translate("SettingsPopUp", "Window Size"))
         self.label_8.setText(_translate("SettingsPopUp", "Min. Frequency"))
-        self.textEdit_3.setHtml(_translate("SettingsPopUp", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'Arial\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">30 ms</p></body></html>"))
+        self.sampleFreqText.setHtml(_translate("SettingsPopUp", str(perfectPitch.processingManager.getSampleFrequency())+ " Hz"))
+        self.windowSizeText.setHtml(_translate("SettingsPopUp", str(perfectPitch.processingManager.getWindowSize())+ " s"))
+        self.minfreq_slider.setValue(self.toLogScale(perfectPitch.processingManager.getMinF0()))
+        self.maxfreq_slider.setValue(self.toLogScale(perfectPitch.processingManager.getMaxF0()))
 
+    def toLogScale(self, value):
+            # converts values octave scale
+            # As Qslice only accepts int, it multiplies by 100 to store 2 decimal places
+            return int(np.floor(np.log2(value)*100))
+        
+    def fromLogScale(self, value):
+            # converts values octave scale
+            # As Qslice only accepts int, it divide by 100 to get 2 decimal places
+            return int(np.floor(2**(value/100)))
+
+    def saveButtonClicked(self, SettingsPopUp):
+            perfectPitch.processingManager.setSampleFrequency(float(self.sampleFreqText.toPlainText().replace(' Hz', '')))
+            perfectPitch.processingManager.setWindowSize(float(self.windowSizeText.toPlainText().replace(' s', '')))
+            perfectPitch.processingManager.setMinF0(self.fromLogScale(self.minfreq_slider.value()))
+            perfectPitch.processingManager.setMaxF0(self.fromLogScale(self.maxfreq_slider.value()))
+            SettingsPopUp.close()
+        
+    def cancelButtonClicked(self, SettingsPopUp):
+            SettingsPopUp.close()
 
 if __name__ == "__main__":
     import sys

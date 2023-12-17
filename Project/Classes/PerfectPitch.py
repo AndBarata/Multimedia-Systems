@@ -1,10 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
+from ProcessingManager import ProcessingManager
 
 
 class PerfectPitch():
     def __init__(self):
-        self.a_number = "A4"
+        self.processingManager = ProcessingManager()
 
     def startInitialWindow(self):
         from initialWindowController import Ui_initialWindow

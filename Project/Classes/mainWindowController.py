@@ -9,10 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import perfectPitch
 
 class Ui_mainWindow(object):
-    def setupUi(self, mainWindow):
+    def setupUi(self, mainWindow, initialWindow):
         mainWindow.setObjectName("mainWindow")
         mainWindow.resize(600, 400)
         mainWindow.setStyleSheet("background-color: rgb(244, 249, 250);")
@@ -23,14 +23,8 @@ class Ui_mainWindow(object):
         self.initialwindow_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.initialwindow_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.initialwindow_frame.setObjectName("initialwindow_frame")
-        self.logo = QtWidgets.QLabel(self.initialwindow_frame)
-        self.logo.setGeometry(QtCore.QRect(490, 10, 70, 70))
-        self.logo.setText("")
-        self.logo.setPixmap(QtGui.QPixmap("../guiPages/../images/icon_whiteBackground.png"))
-        self.logo.setScaledContents(True)
-        self.logo.setObjectName("logo")
-        self.defenitionsButton = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.defenitionsButtonClicked())
-        self.defenitionsButton.setGeometry(QtCore.QRect(20, 10, 41, 41))
+        self.defenitionsButton = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.settingButtonPressed())
+        self.defenitionsButton.setGeometry(QtCore.QRect(10, 10, 70, 70))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setUnderline(False)
@@ -42,44 +36,121 @@ class Ui_mainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../guiPages/../images/defenitionsLogo.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.defenitionsButton.setIcon(icon)
+        self.defenitionsButton.setIconSize(QtCore.QSize(25, 25))
         self.defenitionsButton.setObjectName("defenitionsButton")
-        self.label = QtWidgets.QLabel(self.initialwindow_frame)
-        self.label.setGeometry(QtCore.QRect(250, 160, 100, 16))
-        self.label.setStyleSheet("color: rgb(0, 0, 0);\n"
+        self.recordingLabel = QtWidgets.QLabel(self.initialwindow_frame)
+        self.recordingLabel.setGeometry(QtCore.QRect(250, 150, 100, 16))
+        self.recordingLabel.setStyleSheet("color: rgb(0, 0, 0);\n"
 "font: 13pt \"Arial\";")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
+        self.recordingLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.recordingLabel.setObjectName("recordingLabel")
         self.line4 = QtWidgets.QFrame(self.initialwindow_frame)
-        self.line4.setGeometry(QtCore.QRect(50, 300, 500, 3))
+        self.line4.setGeometry(QtCore.QRect(50, 265, 500, 2))
+        self.line4.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line4.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line4.setObjectName("line4")
         self.line3 = QtWidgets.QFrame(self.initialwindow_frame)
-        self.line3.setGeometry(QtCore.QRect(50, 320, 500, 3))
+        self.line3.setGeometry(QtCore.QRect(50, 280, 500, 2))
+        self.line3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line3.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line3.setObjectName("line3")
         self.line2 = QtWidgets.QFrame(self.initialwindow_frame)
-        self.line2.setGeometry(QtCore.QRect(50, 340, 500, 3))
+        self.line2.setGeometry(QtCore.QRect(50, 295, 500, 2))
+        self.line2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line2.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line2.setObjectName("line2")
         self.line1 = QtWidgets.QFrame(self.initialwindow_frame)
-        self.line1.setGeometry(QtCore.QRect(50, 360, 500, 3))
+        self.line1.setGeometry(QtCore.QRect(50, 310, 500, 2))
+        self.line1.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line1.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line1.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line1.setObjectName("line1")
         self.line5 = QtWidgets.QFrame(self.initialwindow_frame)
-        self.line5.setGeometry(QtCore.QRect(50, 280, 500, 3))
+        self.line5.setGeometry(QtCore.QRect(50, 250, 500, 2))
+        self.line5.setStyleSheet("border-color: black;")
+        self.line5.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line5.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line5.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line5.setObjectName("line5")
-        self.label_2 = QtWidgets.QLabel(self.initialwindow_frame)
-        self.label_2.setGeometry(QtCore.QRect(275, 90, 50, 50))
-        self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOn.png"))
-        self.label_2.setScaledContents(True)
-        self.label_2.setObjectName("label_2")
+        self.defenitionsButton_2 = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.microphoneButtonPressed())
+        self.defenitionsButton_2.setGeometry(QtCore.QRect(265, 70, 70, 70))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setUnderline(False)
+        self.defenitionsButton_2.setFont(font)
+        self.defenitionsButton_2.setStyleSheet("background-color: rgb(244, 249, 250);\n"
+"border: none;\n"
+"color: black;")
+        self.defenitionsButton_2.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOff.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.defenitionsButton_2.setIcon(icon1)
+        self.defenitionsButton_2.setIconSize(QtCore.QSize(120, 120))
+        self.defenitionsButton_2.setObjectName("defenitionsButton_2")
+        self.logoButton = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.logoButtonPressed(mainWindow, initialWindow))
+        self.logoButton.setGeometry(QtCore.QRect(500, 10, 70, 70))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setUnderline(False)
+        self.logoButton.setFont(font)
+        self.logoButton.setStyleSheet("background-color: rgb(244, 249, 250);\n"
+"border: none;\n"
+"color: black;")
+        self.logoButton.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("../guiPages/../images/icon_whiteBackground.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoButton.setIcon(icon2)
+        self.logoButton.setIconSize(QtCore.QSize(70, 70))
+        self.logoButton.setObjectName("logoButton")
+        self.gClave = QtWidgets.QLabel(self.initialwindow_frame)
+        self.gClave.setGeometry(QtCore.QRect(50, 235, 50, 95))
+        self.gClave.setText("")
+        self.gClave.setPixmap(QtGui.QPixmap("../guiPages/../images/gClave.jpg"))
+        self.gClave.setScaledContents(True)
+        self.gClave.setObjectName("gClave")
+        self.defenitionsButton_3 = QtWidgets.QPushButton(self.initialwindow_frame)
+        self.defenitionsButton_3.setGeometry(QtCore.QRect(470, 210, 80, 20))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(True)
+        self.defenitionsButton_3.setFont(font)
+        self.defenitionsButton_3.setAutoFillBackground(False)
+        self.defenitionsButton_3.setStyleSheet("background-color: rgb(244, 249, 250);\n"
+"border: none;\n"
+"color: black;\n"
+"font: 13pt \"Arial\";\n"
+"")
+        self.defenitionsButton_3.setIconSize(QtCore.QSize(25, 25))
+        self.defenitionsButton_3.setObjectName("defenitionsButton_3")
+        self.exportButton = QtWidgets.QPushButton(self.initialwindow_frame, clicked=lambda: self.exportButtonPressed(mainWindow, initialWindow))
+        self.exportButton.setGeometry(QtCore.QRect(450, 330, 100, 30))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        self.exportButton.setFont(font)
+        self.exportButton.setAutoFillBackground(False)
+        self.exportButton.setStyleSheet("font: 13pt \"Arial\";\n"
+"border: none;\n"
+"color: black;\n"
+"background-color: rgb(115, 203, 177);")
+        self.exportButton.setIconSize(QtCore.QSize(25, 25))
+        self.exportButton.setObjectName("exportButton")
+        self.gClave.raise_()
+        self.defenitionsButton.raise_()
+        self.recordingLabel.raise_()
+        self.line4.raise_()
+        self.line3.raise_()
+        self.line2.raise_()
+        self.line1.raise_()
+        self.line5.raise_()
+        self.defenitionsButton_2.raise_()
+        self.logoButton.raise_()
+        self.defenitionsButton_3.raise_()
+        self.exportButton.raise_()
         mainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(mainWindow)
@@ -88,15 +159,47 @@ class Ui_mainWindow(object):
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "MainWindow"))
-        self.label.setText(_translate("mainWindow", "Not recording"))
+        self.recordingLabel.setText(_translate("mainWindow", "Not recording"))
+        self.defenitionsButton_3.setText(_translate("mainWindow", "Clear Sheet"))
+        self.exportButton.setText(_translate("mainWindow", "Export Sheet"))
 
-    def defenitionsButtonClicked(self):
+    # When settings button is pressed . open settings
+    def settingButtonPressed(self):
         from settingsPopUpcontroller import Ui_SettingsPopUp
 
         self.settingsPopUp = QtWidgets.QMainWindow()
         self.ui = Ui_SettingsPopUp()
         self.ui.setupUi(self.settingsPopUp)
         self.settingsPopUp.show()
+
+    # When export button is pressed - go to ending window
+    def exportButtonPressed(self, mainWindow, initialWindow):
+        from endingWindowController import Ui_EndingWindow
+
+        self.endingWindow = QtWidgets.QMainWindow()
+        self.ui = Ui_EndingWindow()
+        self.ui.setupUi(self.endingWindow, initialWindow)
+        self.endingWindow.show()
+        mainWindow.close()
+        print(perfectPitch.processingManager.getSampleFrequency())
+
+    # When export button is pressed - back to initial window
+    def logoButtonPressed(self, mainWindow, initialWindow):
+        initialWindow.show()
+        mainWindow.hide()
+
+    def microphoneButtonPressed(self):
+        if self.recordingLabel.text() == "Recording":
+            self.recordingLabel.setText("Not recording")
+            icon1 = QtGui.QIcon()
+            icon1.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOff.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.defenitionsButton_2.setIcon(icon1)
+        else :
+            self.recordingLabel.setText("Recording")
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("../guiPages/../images/microphoneOn.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.defenitionsButton_2.setIcon(icon)
+
 
 if __name__ == "__main__":
     import sys

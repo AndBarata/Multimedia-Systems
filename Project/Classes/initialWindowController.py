@@ -72,9 +72,9 @@ class Ui_initialWindow(object):
 
         self.mainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_mainWindow()
-        self.ui.setupUi(self.mainWindow)
+        self.ui.setupUi(self.mainWindow, initialWindow)
         self.mainWindow.show()
-        initialWindow.close()
+        initialWindow.hide()
 
 
     def aboutButtonClicked(self):
