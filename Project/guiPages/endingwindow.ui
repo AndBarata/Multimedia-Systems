@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EndingWindow</class>
- <widget class="QWidget" name="EndingWindow">
+ <class>endingWindow</class>
+ <widget class="QWidget" name="endingWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(244, 249, 250);</string>
   </property>
-  <widget class="QFrame" name="EndingWindow_frame">
+  <widget class="QFrame" name="endingWindow_frame">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -44,7 +44,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+     <string notr="true">font: 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>Your music sheet is ready!</string>
@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+     <string notr="true">font: 12pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>We appreciate your feedback:</string>
@@ -128,7 +128,7 @@ border: none;
      <string>Send to email</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="starFrame">
     <property name="geometry">
      <rect>
       <x>0</x>

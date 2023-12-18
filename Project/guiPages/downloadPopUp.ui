@@ -117,7 +117,7 @@ color: black;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="finishButton">
     <property name="geometry">
      <rect>
       <x>150</x>

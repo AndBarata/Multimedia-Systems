@@ -148,3 +148,7 @@ missing module named numpy.ndarray - imported by numpy (top-level), numpy._typin
 missing module named numpy.ufunc - imported by numpy (top-level), numpy._typing (top-level), numpy.testing.overrides (top-level)
 missing module named numpy.histogramdd - imported by numpy (delayed), numpy.lib.twodim_base (delayed)
 missing module named numpy._distributor_init_local - imported by numpy (optional), numpy._distributor_init (optional)
+missing module named PyQt5.uic.port_v2 - imported by PyQt5.uic.properties (conditional)
+missing module named 'PyQt5.uic.port_v2.string_io' - imported by PyQt5.uic (delayed, conditional)
+missing module named 'PyQt5.uic.port_v2.as_string' - imported by PyQt5.uic.Compiler.qtproxies (conditional), PyQt5.uic.Compiler.qobjectcreator (conditional)
+missing module named 'PyQt5.uic.port_v2.proxy_base' - imported by PyQt5.uic.Compiler.qtproxies (conditional)
