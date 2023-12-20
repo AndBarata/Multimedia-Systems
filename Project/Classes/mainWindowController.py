@@ -1,17 +1,15 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 from PyQt5 import uic, QtGui, QtCore
 from main import resource_path, perfectPitch
+import threading
 
 
 class Ui_MainWindow(QMainWindow):
-
-
     def __init__(self, initialWindow):
         super(Ui_MainWindow, self).__init__()
-        
         ####################### /DELETE it's for testing/ #######################
-        freq = [261.63, 293.66, 329.63, 349.23, 392.00]
-        for i in range(0, 5):
+        freq = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 500, 570, 620] # C4, D4, E4, F4, G4, A4, B4
+        for i in range(0, 9):
             noteNumber = perfectPitch.processingManager.calculatePitch(freq[i])
             musicNote = perfectPitch.processingManager.createMusicNote(
                 noteNumber,
@@ -23,12 +21,11 @@ class Ui_MainWindow(QMainWindow):
                 1
             )
             perfectPitch.musicSheetManager.addMusicNote(musicNote)
-
         ####################### // #######################
 
 
         # Define Variables
-        self.yStartNote = 232 # y coordinate when note is on C line
+        self.yStartNote = 230 # y coordinate when note is on C line
         self.yStep = 7
         self.xStartNote = 100 # x coordinate of the 1st note
         self.xStep = 50
@@ -51,9 +48,12 @@ class Ui_MainWindow(QMainWindow):
         self.microphoneButton.clicked.connect(self.microphoneButtonPressed)
         self.exportButton.clicked.connect(lambda: self.exportButtonPressed(initialWindow))
 
-
         #Set the App
         self.show()
+
+
+
+
 
     def clearSheetButtonPressed(self):
         self.updateSheet(perfectPitch.musicSheetManager.sheet)
@@ -86,12 +86,22 @@ class Ui_MainWindow(QMainWindow):
             icon.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOn.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon)
 
-    def updateSheet(self, musicSheet):
-        for i, note in enumerate(musicSheet.getNotes()):
-            self.placeNoteOnSheet(note, i)
-           
+            # TODO : Init record thread, when finished signals processing thread
 
-    def placeNoteOnSheet(self, note, i):
+            # TODO : Init processing thread when finished signals display thread
+
+            # TODO : Init diplay thread
+
+    def updateSheet(self, musicSheet):
+        self.notesDisplay = []
+        for i, note in enumerate(musicSheet.getNotes()):
+            newNote = self.noteOnGui(note, i)
+            self.notesDisplay.append(newNote)
+            self.notesDisplay[i].show()
+        
+            
+            
+    def noteOnGui(self, note, i):
         yCor = self.fromNoteToCoordinates(note.getPitch())
         xCor = self.xStartNote + i*self.xStep
         note = QLabel(self.mainWindowFrame)
@@ -101,28 +111,30 @@ class Ui_MainWindow(QMainWindow):
         note.setScaledContents(True)
         note.setObjectName("note1")
         note.lower()
-        note.show()
+
+        return note
+        
 
 
     def fromNoteToCoordinates(self, noteNumber):
         name = perfectPitch.musicSheetManager.pitchList[noteNumber][0:2]
-        print("DEGUB: name: ", name)
         # swich case
         if name == "dó":
-            y = 1
+            y = 7
         elif name == "ré":
-            y = 2
+            y = 1
         elif name == "mi":
+            y = 2
+        elif name == "fá":
             y = 3
-        elif name == "fa":
-            y = 4
         elif name == "so":
+            y = 4
+        elif name == "lá":
             y = 5
-        elif name == "la":
-            y = 6
         elif name == "si":
-            y = 9
+            y = 6
         else:
-            y = 0
+            y = None
 
+        print("DEBUG: y: ", y, "ycor: ", self.yStartNote - y*self.yStep)
         return self.yStartNote - y*self.yStep

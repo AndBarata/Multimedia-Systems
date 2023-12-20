@@ -14,3 +14,8 @@ class PerfectPitch():
         app = QApplication(sys.argv)
         window = Ui_initialWindow()
         app.exec_()
+
+        
+
+
+        

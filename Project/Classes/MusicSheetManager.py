@@ -70,3 +70,6 @@ class MusicSheetManager:
     def _updateLength(self):
         # TODO : Update length of musicSheet
         pass
+
+    def getUpdateFrequency(self):
+        return self._updateFrequency
