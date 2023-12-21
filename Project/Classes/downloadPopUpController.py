@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton
 from PyQt5 import uic
 from main import resource_path
+from main import perfectPitch
 
 class Ui_downloadWindow(QMainWindow):
     def __init__(self):
@@ -14,9 +15,12 @@ class Ui_downloadWindow(QMainWindow):
 
         # Define Functions
         self.finishButton.clicked.connect(self.finishButtonPressed)
-
+        
         # Show Window
         self.show()
 
+        # Actions
+        perfectPitch.musicSheetManager.downloadSheetTxt()
+        
     def finishButtonPressed(self):
         self.close()

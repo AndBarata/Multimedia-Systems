@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 from PyQt5 import uic, QtGui
-from main import resource_path
+from main import resource_path, perfectPitch
 
 class Ui_endingWindow(QMainWindow):
     def __init__(self, initialWindow):
@@ -35,6 +35,7 @@ class Ui_endingWindow(QMainWindow):
         self.show()
 
     def logoButtonPressed(self, initialWindow):
+        perfectPitch.musicSheetManager.clearSheet()
         initialWindow.show()
         self.close()
 
@@ -50,21 +51,21 @@ class Ui_endingWindow(QMainWindow):
         # Zero starts to one star
         if self.stars < 1:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path(resource_path("./images/starYellow.jpg"))), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path(resource_path("./images/starYellow.png"))), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.stars = 1
 
         # One star to zero stars
         elif self.stars == 1:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.stars = 0
         
         # several stars to one star
         else :
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
                 self.star4.setIcon(icon)
@@ -74,21 +75,21 @@ class Ui_endingWindow(QMainWindow):
     def star2Pressed(self):
         if self.stars < 2:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.stars = 2
 
         elif self.stars == 2:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.stars = 0
         
         else :
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star3.setIcon(icon)
                 self.star4.setIcon(icon)
                 self.star5.setIcon(icon)
@@ -97,7 +98,7 @@ class Ui_endingWindow(QMainWindow):
     def star3Pressed(self):
         if self.stars < 3:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
@@ -105,7 +106,7 @@ class Ui_endingWindow(QMainWindow):
 
         elif self.stars == 3:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
@@ -113,7 +114,7 @@ class Ui_endingWindow(QMainWindow):
         
         else :
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star4.setIcon(icon)
                 self.star5.setIcon(icon)
                 self.stars = 3 
@@ -121,7 +122,7 @@ class Ui_endingWindow(QMainWindow):
     def star4Pressed(self):
         if self.stars < 4:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
@@ -130,7 +131,7 @@ class Ui_endingWindow(QMainWindow):
 
         elif self.stars == 4:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
@@ -138,14 +139,14 @@ class Ui_endingWindow(QMainWindow):
                 self.stars = 0
         else:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star5.setIcon(icon)
                 self.stars = 4
 
     def star5Pressed(self):
         if self.stars < 5:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starYellow.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)
@@ -154,7 +155,7 @@ class Ui_endingWindow(QMainWindow):
                 self.stars = 5
         else:
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(resource_path("./images/starWhite.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 self.star1.setIcon(icon)
                 self.star2.setIcon(icon)
                 self.star3.setIcon(icon)

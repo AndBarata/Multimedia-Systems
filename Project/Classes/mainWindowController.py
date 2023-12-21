@@ -29,6 +29,7 @@ class Ui_MainWindow(QMainWindow):
         self.yStep = 7
         self.xStartNote = 100 # x coordinate of the 1st note
         self.xStep = 50
+        self.notesDisplay = [] # Contains notas as a lable from the gui
 
         # Load .ui file
         uic.loadUi(resource_path("./guiPages/mainWindow.ui"), self)
@@ -54,13 +55,10 @@ class Ui_MainWindow(QMainWindow):
         # Set the App
         self.show()
 
-
-
-    def teste(self):
-        print("teste")
-
     def clearSheetButtonPressed(self):
+        perfectPitch.musicSheetManager.clearSheet()
         self.updateSheet(perfectPitch.musicSheetManager.sheet)
+
 
     def defenitionsButtonPressed(self):
         from definitionPopUpController import Ui_DefWindow
@@ -74,39 +72,41 @@ class Ui_MainWindow(QMainWindow):
 
 
     def logoButtonPressed(self, initialWindow):
+        perfectPitch.musicSheetManager.clearSheet()
         initialWindow.show()
+
         self.close()
 
     def microphoneButtonPressed(self):
         if self.recordingLabel.text() == "Recording": # If recording, stops recording
             self.recordingLabel.setText("Not recording")
             icon1 = QtGui.QIcon()
-            icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOff.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microoff.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon1)
             self.timer.stop()
 
         else : # If not recording, star recording
             self.recordingLabel.setText("Recording")
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOn.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon.addPixmap(QtGui.QPixmap(resource_path("./images/microon.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon)
 
             # TODO : Init record thread, when finished signals processing thread
             
             # TODO : Init processing thread when finished signals display thread
-            print("DEBUG time: ", int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
+
             self.timer.start(int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
 
-
-
     def updateSheet(self, musicSheet):
+        for note in self.notesDisplay:
+            note.hide()
+        
         self.notesDisplay = []
         for i, note in enumerate(musicSheet.getNotes()):
             newNote = self.noteOnGui(note, i)
             self.notesDisplay.append(newNote)
             self.notesDisplay[i].show()
-        
-            
+                    
             
     def noteOnGui(self, note, i):
         yCor = self.fromNoteToCoordinates(note.getPitch())
@@ -117,6 +117,7 @@ class Ui_MainWindow(QMainWindow):
         note.setPixmap(QtGui.QPixmap(resource_path("./images/seminima1.png")))
         note.setScaledContents(True)
         note.setObjectName("note1")
+        note.setStyleSheet("background: none;")
         note.lower()
 
         return note
@@ -142,6 +143,6 @@ class Ui_MainWindow(QMainWindow):
             y = 6
         else:
             y = None
-        import time # DEBUG
-        print("DEBUG: ", time.monotonic())
+        
+        
         return self.yStartNote - y*self.yStep

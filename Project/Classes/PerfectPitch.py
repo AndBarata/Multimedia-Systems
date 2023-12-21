@@ -9,9 +9,7 @@ class PerfectPitch():
         self.processingManager = ProcessingManager()
         self.musicSheetManager = MusicSheetManager(self.processingManager)
 
-        
-         
-    
+
     def startInitialWindow(self):
         from initialWindowController import Ui_initialWindow
 

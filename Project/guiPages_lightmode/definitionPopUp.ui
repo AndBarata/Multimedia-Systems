@@ -381,10 +381,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
      </property>
-     <property name="styleSheet">
-      <string notr="true">
-</string>
-     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

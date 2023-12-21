@@ -26,12 +26,6 @@
       <height>400</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background: qlineargradient(
-    x1: 0, y1: 0, x2: 1, y2: 1,
-    stop: 0 rgba(50, 50, 50, 1), stop: 1 rgba(128, 128, 128, 1)
-);</string>
-    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -54,7 +48,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;
+      <string notr="true">background-color: rgb(244, 249, 250);
 border: none;
 color: black;</string>
      </property>
@@ -63,7 +57,7 @@ color: black;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/images_no_back/settings.png</normaloff>../images/images_no_back/settings.png</iconset>
+       <normaloff>../images/defenitionsLogo.jpg</normaloff>../images/defenitionsLogo.jpg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -82,9 +76,8 @@ color: black;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: white;
-font: 13pt &quot;Arial&quot;;
-background: none;</string>
+      <string notr="true">color: rgb(0, 0, 0);
+font: 13pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Not recording</string>
@@ -97,10 +90,15 @@ background: none;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>265</y>
+       <y>264</y>
        <width>500</width>
-       <height>2</height>
+       <height>1</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: black;
+background-color: black;
+</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -113,10 +111,14 @@ background: none;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>280</y>
+       <y>278</y>
        <width>500</width>
-       <height>2</height>
+       <height>1</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: black;
+background-color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -129,10 +131,14 @@ background: none;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>295</y>
+       <y>292</y>
        <width>500</width>
-       <height>2</height>
+       <height>1</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: black;
+background-color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -145,10 +151,14 @@ background: none;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>310</y>
+       <y>306</y>
        <width>500</width>
-       <height>2</height>
+       <height>1</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: black;
+background-color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -163,11 +173,12 @@ background: none;</string>
        <x>50</x>
        <y>250</y>
        <width>500</width>
-       <height>2</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-color: black;</string>
+      <string notr="true">border-color: black;
+background-color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -192,7 +203,7 @@ background: none;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;
+      <string notr="true">background-color: rgb(244, 249, 250);
 border: none;
 color: black;</string>
      </property>
@@ -201,7 +212,7 @@ color: black;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/images_no_back/microoff.png</normaloff>../images/images_no_back/microoff.png</iconset>
+       <normaloff>../images/microphoneOff.jpg</normaloff>../images/microphoneOff.jpg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -213,7 +224,7 @@ color: black;</string>
     <widget class="QPushButton" name="logoButton">
      <property name="geometry">
       <rect>
-       <x>510</x>
+       <x>500</x>
        <y>10</y>
        <width>70</width>
        <height>70</height>
@@ -226,7 +237,7 @@ color: black;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;
+      <string notr="true">background-color: rgb(244, 249, 250);
 border: none;
 color: black;</string>
      </property>
@@ -235,7 +246,7 @@ color: black;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/images_no_back/icon.png</normaloff>../images/images_no_back/icon.png</iconset>
+       <normaloff>../images/icon_whiteBackground.png</normaloff>../images/icon_whiteBackground.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -248,19 +259,16 @@ color: black;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>235</y>
+       <y>232</y>
        <width>50</width>
        <height>95</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../images/images_no_back/gClave.png</pixmap>
+      <pixmap>../images/gClave.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -288,9 +296,9 @@ color: black;</string>
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background:none;
+      <string notr="true">background-color: rgb(244, 249, 250);
 border: none;
-color: white;
+color: black;
 font: 13pt &quot;Arial&quot;;
 </string>
      </property>
@@ -327,13 +335,9 @@ font: 13pt &quot;Arial&quot;;
      </property>
      <property name="styleSheet">
       <string notr="true">font: 13pt &quot;Arial&quot;;
-color: white; 
-background: qradialgradient(
-    cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-    radius: 1.35, stop: 0 rgba(25, 81, 68, 1), stop: 1 rgba(57, 148, 127, 1)
-);
-
-border-radius: 10%;</string>
+border: none;
+color: black;
+background-color: rgb(115, 203, 177);</string>
      </property>
      <property name="text">
       <string>Export Sheet</string>
@@ -345,6 +349,27 @@ border-radius: 10%;</string>
       </size>
      </property>
     </widget>
+    <widget class="QLabel" name="delete_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>230</y>
+       <width>70</width>
+       <height>136</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../images/seminima1.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>delete_2</zorder>
+    <zorder>gClave</zorder>
     <zorder>defenitionsButton</zorder>
     <zorder>recordingLabel</zorder>
     <zorder>line4</zorder>
@@ -356,7 +381,6 @@ border-radius: 10%;</string>
     <zorder>logoButton</zorder>
     <zorder>clearSheetButton</zorder>
     <zorder>exportButton</zorder>
-    <zorder>gClave</zorder>
    </widget>
   </widget>
  </widget>
