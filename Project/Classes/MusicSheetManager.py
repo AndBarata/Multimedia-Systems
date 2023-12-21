@@ -1,6 +1,7 @@
 from MusicNote import MusicNote
 from MusicSheet import MusicSheet
-
+import os
+from pathlib import Path
 class MusicSheetManager:
     def __init__(self, processingManager):
         self.sheet = MusicSheet()
@@ -56,7 +57,6 @@ class MusicSheetManager:
         self._updateFrequency = newUpdateFrequency
 
     def addMusicNote(self, newNote):
-        #print("DEBUG: newnote pitch: ", newNote.getPitch())
         self.sheet.allNotes.append(newNote)             # Add note to list of all notes
         if len(self.sheet.getNotes()) < self.sheet.maxDisplayLength:    # If sheet is not full
             self.sheet.notesOnDisplay.append(newNote)
@@ -65,7 +65,11 @@ class MusicSheetManager:
             self.sheet.shiftDisplay()
             self.sheet.notesOnDisplay.append(newNote)
             
-        
+    def restarSheet(self):
+        self.sheet = MusicSheet()
+    
+    def clearSheet(self):
+        self.sheet.notesOnDisplay = []
 
     def _updateLength(self):
         # TODO : Update length of musicSheet
@@ -73,3 +77,20 @@ class MusicSheetManager:
 
     def getUpdateFrequency(self):
         return self._updateFrequency
+
+    def downloadSheetTxt(self):
+        filepath = os.path.join(self.get_download_path(), 'MusicSheet.txt')
+
+        # Create and write to the file
+        with open(filepath, 'w') as f:
+            for note in self.sheet.getNotes():
+                pitch = self.pitchList[note.getPitch()]
+                f.write(f'{pitch}\n')
+
+
+
+    def get_download_path(self):
+        if os.name == 'nt':  # For Windows
+            return os.path.join(os.path.join(os.environ['USERPROFILE']), 'Downloads')
+        else:  # For macOS and Linux
+            return str(Path.home() / 'Downloads')

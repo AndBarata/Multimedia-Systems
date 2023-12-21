@@ -88,10 +88,14 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: black;
-font: 13pt &quot;Arial&quot;;
-border-color: rgb(38, 73, 89);</string>
+     <string notr="true">font: 18pt &quot;Arial&quot;;
+color: #000000; 
+background: qradialgradient(
+    cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+    radius: 1.35, stop: 0 rgba(35, 120, 99, 1), stop: 1 rgba(77, 206, 175, 1)
+);
+
+border-radius: 10%;</string>
     </property>
     <property name="text">
      <string>Save</string>
@@ -107,10 +111,14 @@ border-color: rgb(38, 73, 89);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(38, 73, 89);
-color: black;
-font: 13pt &quot;Arial&quot;;</string>
+     <string notr="true">font: 18pt &quot;Arial&quot;;
+color: #000000; 
+background: qradialgradient(
+    cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+    radius: 1.35, stop: 0 rgba(35, 120, 99, 1), stop: 1 rgba(77, 206, 175, 1)
+);
+
+border-radius: 10%;</string>
     </property>
     <property name="text">
      <string>Cancel</string>

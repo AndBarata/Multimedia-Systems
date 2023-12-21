@@ -33,10 +33,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: qlineargradient(
-    x1: 0, y1: 0, x2: 1, y2: 1,
-    stop: 0 rgba(50, 50, 50, 1), stop: 1 rgba(128, 128, 128, 1)
-);</string>
+     <string notr="true">background-color: rgb(244, 249, 250);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -53,14 +50,11 @@
        <height>200</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background: none;</string>
-     </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../images/images_no_back/icon.png</pixmap>
+      <pixmap>../images/icon_whiteBackground.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -85,13 +79,13 @@
      </property>
      <property name="styleSheet">
       <string notr="true">font: 20pt &quot;Arial&quot;;
-color: white; 
+background-color: rgb(115, 203, 177);
 background: qradialgradient(
     cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-    radius: 1.35, stop: 0 rgba(25, 81, 68, 1), stop: 1 rgba(57, 148, 127, 1)
+    radius: 1.35, stop: 0 #d2f2eb, stop: 1 #d2f2eb
 );
 
-border-radius: 10%;
+border-radius: 20px;
 </string>
      </property>
      <property name="text">
@@ -114,9 +108,9 @@ border-radius: 10%;
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;
+      <string notr="true">background-color: rgb(244, 249, 250);
 border: none;
-color: white;</string>
+color: black;</string>
      </property>
      <property name="text">
       <string>About PerfectPitch</string>
