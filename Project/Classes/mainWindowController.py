@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 from PyQt5 import uic, QtGui, QtCore
 from main import resource_path, perfectPitch
 import threading
-
+import numpy as np
 
 class Ui_MainWindow(QMainWindow):
     def __init__(self, initialWindow):
@@ -48,12 +48,16 @@ class Ui_MainWindow(QMainWindow):
         self.microphoneButton.clicked.connect(self.microphoneButtonPressed)
         self.exportButton.clicked.connect(lambda: self.exportButtonPressed(initialWindow))
 
-        #Set the App
+        # Define Timer
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(lambda: self.updateSheet(perfectPitch.musicSheetManager.sheet))
+        # Set the App
         self.show()
 
 
 
-
+    def teste(self):
+        print("teste")
 
     def clearSheetButtonPressed(self):
         self.updateSheet(perfectPitch.musicSheetManager.sheet)
@@ -79,6 +83,7 @@ class Ui_MainWindow(QMainWindow):
             icon1 = QtGui.QIcon()
             icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microphoneOff.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon1)
+            self.timer.stop()
 
         else : # If not recording, star recording
             self.recordingLabel.setText("Recording")
@@ -87,10 +92,12 @@ class Ui_MainWindow(QMainWindow):
             self.microphoneButton.setIcon(icon)
 
             # TODO : Init record thread, when finished signals processing thread
-
+            
             # TODO : Init processing thread when finished signals display thread
+            print("DEBUG time: ", int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
+            self.timer.start(int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
 
-            # TODO : Init diplay thread
+
 
     def updateSheet(self, musicSheet):
         self.notesDisplay = []
@@ -135,6 +142,6 @@ class Ui_MainWindow(QMainWindow):
             y = 6
         else:
             y = None
-
-        print("DEBUG: y: ", y, "ycor: ", self.yStartNote - y*self.yStep)
+        import time # DEBUG
+        print("DEBUG: ", time.monotonic())
         return self.yStartNote - y*self.yStep

@@ -1,5 +1,6 @@
 import math
 from MusicNote import MusicNote
+from Microphone import Microphone
 
 class ProcessingManager:
     def __init__(self):
@@ -10,6 +11,7 @@ class ProcessingManager:
         self.sampleFrequency = 44100.0 # Hz
         self.referenceFrequency = 440.0 # Hz
         self.referenceNoteNumber = 69 # A4
+        self.audioSize = 1 # seconds
 
     def getMicrophone(self):
         return self.microphone
@@ -25,6 +27,9 @@ class ProcessingManager:
 
     def getSampleFrequency(self):
         return self.sampleFrequency
+
+    def getAudioSize(self):
+        return self.audioSize
 
     def setWindowSize(self, newWindowSize):
         self.windowSize = newWindowSize

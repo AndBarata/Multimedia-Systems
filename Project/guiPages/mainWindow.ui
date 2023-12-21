@@ -352,8 +352,8 @@ background-color: rgb(115, 203, 177);</string>
     <widget class="QLabel" name="delete_2">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>50</y>
+       <x>100</x>
+       <y>230</y>
        <width>70</width>
        <height>136</height>
       </rect>
@@ -368,6 +368,26 @@ background-color: rgb(115, 203, 177);</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="delete_3">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>210</y>
+       <width>70</width>
+       <height>136</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../images/seminima2.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>delete_3</zorder>
     <zorder>delete_2</zorder>
     <zorder>gClave</zorder>
     <zorder>defenitionsButton</zorder>

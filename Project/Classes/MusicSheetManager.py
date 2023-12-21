@@ -4,7 +4,7 @@ from MusicSheet import MusicSheet
 class MusicSheetManager:
     def __init__(self, processingManager):
         self.sheet = MusicSheet()
-        self._updateFrequency = processingManager.getWindowSize() # seconds
+        self._updateFrequency = processingManager.getAudioSize() # seconds
         self.pitchList = { # Associates a number to a note
             45: "lá2",
             46: "lá#2",
