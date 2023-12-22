@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QTextEdit
 from PyQt5 import uic
-from main import resource_path
+from main import resource_path, perfectPitch
 
 class Ui_emailWindow(QMainWindow):
     def __init__(self):
@@ -11,3 +11,17 @@ class Ui_emailWindow(QMainWindow):
 
         # Show Window
         self.show()
+        
+        ##Define widgets
+        
+        self.emailText = self.findChild(QTextEdit, "emailText")
+        
+        self.sendButton.clicked.connect(self.sendButtonPressed)
+        
+    def sendButtonPressed(self):
+        email = self.emailText.toPlainText()
+        self.close()
+        perfectPitch.musicSheetManager.sendEmail(email)
+        
+        
+         

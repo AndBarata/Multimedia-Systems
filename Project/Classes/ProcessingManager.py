@@ -134,4 +134,4 @@ class ProcessingManager:
             zeroCrossingRate, # zcr
             sampleFrequency, # fs
             duration # duration
-        )
+        )       
