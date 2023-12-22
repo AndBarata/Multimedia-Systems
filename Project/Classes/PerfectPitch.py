@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QApplication
 import sys
 from ProcessingManager import ProcessingManager
 from MusicSheetManager import MusicSheetManager
-from MusicNote import MusicNote
 import threading
 import queue
 

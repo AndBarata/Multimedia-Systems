@@ -31,6 +31,12 @@
      <height>600</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background: qlineargradient(
+    x1: 0, y1: 0, x2: 1, y2: 1,
+    stop: 0 rgba(50, 50, 50, 1), stop: 1 rgba(128, 128, 128, 1)
+);</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
@@ -53,7 +59,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(244, 249, 250);
+     <string notr="true">background:none;
 border: none;
 color: black;</string>
     </property>
@@ -62,7 +68,7 @@ color: black;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../images/icon_blueBackground.png</normaloff>../images/icon_blueBackground.png</iconset>
+      <normaloff>../images/images_no_back/icon.png</normaloff>../images/images_no_back/icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -81,7 +87,8 @@ color: black;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: none;</string>
+     <string notr="true">border: none;
+background: none;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -107,7 +114,10 @@ color: black;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 700 20pt &quot;Arial&quot;;</string>
+      <string notr="true">font: 700 20pt &quot;Arial&quot;;
+color: white;
+background: none;
+</string>
      </property>
      <property name="text">
       <string>Download Completed</string>
@@ -128,10 +138,10 @@ color: black;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 18pt &quot;Arial&quot;;
-color: #000000; 
+color: white; 
 background: qradialgradient(
     cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-    radius: 1.35, stop: 0 rgba(35, 120, 99, 1), stop: 1 rgba(77, 206, 175, 1)
+    radius: 1.35, stop: 0 rgba(25, 81, 68, 1), stop: 1 rgba(57, 148, 127, 1)
 );
 
 border-radius: 10%;</string>

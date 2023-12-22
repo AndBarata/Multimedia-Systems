@@ -129,7 +129,7 @@ class MusicSheetManager:
 
         from_email = 'perfect.pitch.FEUP@gmail.com'
         subject = 'Hello, world!'
-        body = 'This is a test email.'
+        body = 'This is a test email.' # TODO : change subject
 
         # Criar arquivo de texto
         file_path = 'texto.txt'

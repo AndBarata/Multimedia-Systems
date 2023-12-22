@@ -108,7 +108,8 @@ background: none;</string>
      <property name="styleSheet">
       <string notr="true">font: 13pt &quot;Arial&quot;;
 background-color: rgb(255, 255, 255);
-border-radius: 10%;</string>
+border-radius: 10%;
+color: black;</string>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
