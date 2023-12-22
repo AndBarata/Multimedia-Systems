@@ -41,11 +41,14 @@ class PerfectPitch():
         print("Here")
         self.stop_threads.set()  # Sinalizando para as threads que é hora de parar
 
-    def get_macos_theme(self):
-        import subprocess
 
-        theme = subprocess.check_output("defaults read -g AppleInterfaceStyle", shell=True)
-        return theme.decode().strip()
+    def get_windows_theme():
+        import winreg
+
+        registry = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
+        key = winreg.OpenKey(registry, r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
+        theme, _ = winreg.QueryValueEx(key, "AppsUseLightTheme")
+        return "Light" if theme else "Dark"
 
 
     def get_macos_theme(self):

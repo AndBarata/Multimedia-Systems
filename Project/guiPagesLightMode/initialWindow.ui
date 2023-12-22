@@ -125,7 +125,7 @@ color: black;</string>
     <widget class="QPushButton" name="modeButton">
      <property name="geometry">
       <rect>
-       <x>530</x>
+       <x>540</x>
        <y>20</y>
        <width>40</width>
        <height>40</height>
