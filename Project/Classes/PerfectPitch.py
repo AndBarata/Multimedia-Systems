@@ -4,12 +4,18 @@ from ProcessingManager import ProcessingManager
 from MusicSheetManager import MusicSheetManager
 import threading
 import queue
+import subprocess
+import os
+
 
 class PerfectPitch():
     def __init__(self):
         self.processingManager = ProcessingManager()
         self.musicSheetManager = MusicSheetManager(self.processingManager)
-        
+        if os.name == 'nt':  # For Windows
+            self.mode = self.get_windows_theme()
+        else:
+            self.mode = self.get_macos_theme()
 
 
     def startInitialWindow(self):
@@ -34,3 +40,19 @@ class PerfectPitch():
     def stopRecording(self):
         print("Here")
         self.stop_threads.set()  # Sinalizando para as threads que é hora de parar
+
+    def get_macos_theme(self):
+        import subprocess
+
+        theme = subprocess.check_output("defaults read -g AppleInterfaceStyle", shell=True)
+        return theme.decode().strip()
+
+
+    def get_macos_theme(self):
+        import subprocess
+
+        try:
+            theme = subprocess.check_output("defaults read -g AppleInterfaceStyle", shell=True)
+            return theme.decode().strip()
+        except subprocess.CalledProcessError:
+            return "light"

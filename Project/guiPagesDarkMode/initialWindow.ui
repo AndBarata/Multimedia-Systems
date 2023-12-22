@@ -14,12 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(196, 236, 236);</string>
+   <string notr="true">background-color: rgb(244, 249, 250);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(196, 236, 236);</string>
-   </property>
    <widget class="QFrame" name="initialwindow_frame">
     <property name="geometry">
      <rect>
@@ -38,7 +35,7 @@
     <property name="styleSheet">
      <string notr="true">background: qlineargradient(
     x1: 0, y1: 0, x2: 1, y2: 1,
-    stop: 0 rgba(196, 236, 236, 1), stop: 1 rgba(255, 255, 255, 1)
+    stop: 0 rgba(50, 50, 50, 1), stop: 1 rgba(128, 128, 128, 1)
 );</string>
     </property>
     <property name="frameShape">
@@ -57,14 +54,13 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;
-border: none;</string>
+      <string notr="true">background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../images/images_no_back/icon.png</pixmap>
+      <pixmap>../images/icon.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -92,10 +88,11 @@ border: none;</string>
 color: white; 
 background: qradialgradient(
     cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-    radius: 1.35, stop: 0 rgba(35, 120, 99, 1), stop: 1 rgba(77, 206, 175, 1)
+    radius: 1.35, stop: 0 rgba(25, 81, 68, 1), stop: 1 rgba(57, 148, 127, 1)
 );
 
-border-radius: 10%;</string>
+border-radius: 10%;
+</string>
      </property>
      <property name="text">
       <string>START</string>
@@ -117,18 +114,18 @@ border-radius: 10%;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background:none;
+      <string notr="true">background: none;
 border: none;
-color: black;</string>
+color: white;</string>
      </property>
      <property name="text">
       <string>About PerfectPitch</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="modeButton">
      <property name="geometry">
       <rect>
-       <x>530</x>
+       <x>540</x>
        <y>20</y>
        <width>40</width>
        <height>40</height>
@@ -143,7 +140,7 @@ border: none;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../../../Downloads/lightMode.png</normaloff>../../../../../Downloads/lightMode.png</iconset>
+       <normaloff>../images/darkMode.png</normaloff>../images/darkMode.png</iconset>
      </property>
      <property name="iconSize">
       <size>

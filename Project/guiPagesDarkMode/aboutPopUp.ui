@@ -111,7 +111,7 @@ color: black;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../images/images_no_back/icon.png</normaloff>../images/images_no_back/icon.png</iconset>
+      <normaloff>../images/icon.png</normaloff>../images/icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>

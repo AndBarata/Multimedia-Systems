@@ -11,6 +11,8 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+
+
 perfectPitch = PerfectPitch()
 
 if __name__ == "__main__":

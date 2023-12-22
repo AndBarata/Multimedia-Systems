@@ -46,7 +46,7 @@
    <property name="styleSheet">
     <string notr="true">background: qlineargradient(
     x1: 0, y1: 0, x2: 1, y2: 1,
-    stop: 0 rgba(50, 50, 50, 1), stop: 1 rgba(128, 128, 128, 1)
+    stop: 0 rgba(39, 113, 90, 1), stop: 1 rgba(210, 254, 254, 1)
 );</string>
    </property>
    <property name="frameShape">

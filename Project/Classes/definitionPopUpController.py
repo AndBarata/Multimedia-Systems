@@ -8,7 +8,10 @@ class Ui_DefWindow(QMainWindow):
         super(Ui_DefWindow, self).__init__()
 
         # Load .ui file
-        uic.loadUi(resource_path("./guiPages/definitionPopUp.ui"), self)
+        if perfectPitch.mode == "light":
+            uic.loadUi(resource_path("./guiPagesLightMode/definitionPopUp.ui"), self)
+        else:
+            uic.loadUi(resource_path("./guiPagesDarkMode/definitionPopUp.ui"), self)
 
         # Define Widgets
         self.saveButton = self.findChild(QPushButton, "saveButton")

@@ -14,7 +14,10 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(244, 249, 250);</string>
+   <string notr="true">background: qlineargradient(
+    x1: 0, y1: 0, x2: 1, y2: 1,
+    stop: 0 rgba(196, 236, 236, 1), stop: 1 rgba(255, 255, 255, 1)
+);</string>
   </property>
   <widget class="QFrame" name="endingWindow_frame">
    <property name="geometry">
@@ -26,7 +29,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 249, 250);</string>
+    <string notr="true">background: qlineargradient(
+    x1: 0, y1: 0, x2: 1, y2: 1,
+    stop: 0 rgba(196, 236, 236, 1), stop: 1 rgba(255, 255, 255, 1)
+);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -44,7 +50,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 14pt &quot;Arial&quot;;</string>
+     <string notr="true">font: 14pt &quot;Arial&quot;;
+background:none;
+border: none;
+color: black;</string>
     </property>
     <property name="text">
      <string>Your music sheet is ready!</string>
@@ -63,7 +72,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;Arial&quot;;</string>
+     <string notr="true">background:none;
+border: none;
+color: black;
+font: 13pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>We appreciate your feedback:</string>
@@ -91,10 +103,9 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;Arial&quot;;
-background-color: rgb(244, 249, 250);
+     <string notr="true">background:none;
 border: none;
-</string>
+color: black;</string>
     </property>
     <property name="text">
      <string>Download</string>
@@ -120,8 +131,9 @@ border: none;
     </property>
     <property name="styleSheet">
      <string notr="true">font: 13pt &quot;Arial&quot;;
-background-color: rgb(244, 249, 250);
+background:none;
 border: none;
+color: black;
 </string>
     </property>
     <property name="text">
@@ -138,7 +150,9 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: none;</string>
+     <string notr="true">background:none;
+border: none;
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -157,14 +171,14 @@ border: none;
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(244, 249, 250);</string>
+background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/starWhite.jpg</normaloff>../images/starWhite.jpg</iconset>
+       <normaloff>../images/starBlack.png</normaloff>../images/starBlack.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -187,14 +201,14 @@ background-color: rgb(244, 249, 250);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(244, 249, 250);</string>
+background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/starWhite.jpg</normaloff>../images/starWhite.jpg</iconset>
+       <normaloff>../images/starBlack.png</normaloff>../images/starBlack.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -217,14 +231,14 @@ background-color: rgb(244, 249, 250);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(244, 249, 250);</string>
+background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/starWhite.jpg</normaloff>../images/starWhite.jpg</iconset>
+       <normaloff>../images/starBlack.png</normaloff>../images/starBlack.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -247,14 +261,14 @@ background-color: rgb(244, 249, 250);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(244, 249, 250);</string>
+background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/starWhite.jpg</normaloff>../images/starWhite.jpg</iconset>
+       <normaloff>../images/starBlack.png</normaloff>../images/starBlack.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -277,14 +291,14 @@ background-color: rgb(244, 249, 250);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(244, 249, 250);</string>
+background: none;</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../images/starWhite.jpg</normaloff>../images/starWhite.jpg</iconset>
+       <normaloff>../images/starBlack.png</normaloff>../images/starBlack.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -307,7 +321,10 @@ background-color: rgb(244, 249, 250);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;Arial&quot;;</string>
+     <string notr="true">background:none;
+border: none;
+color: black;
+font: 24pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>Thank you for using
@@ -333,7 +350,7 @@ background-color: rgb(244, 249, 250);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(244, 249, 250);
+     <string notr="true">background:none;
 border: none;
 color: black;</string>
     </property>
@@ -342,7 +359,7 @@ color: black;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../images/icon_whiteBackground.png</normaloff>../images/icon_whiteBackground.png</iconset>
+      <normaloff>../images/icon.png</normaloff>../images/icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>

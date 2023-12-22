@@ -7,7 +7,10 @@ class Ui_emailWindow(QMainWindow):
         super(Ui_emailWindow, self).__init__()
 
         # Load .ui file
-        uic.loadUi(resource_path("./guiPages/emailPopUp.ui"), self)
+        if perfectPitch.mode == "light":
+            uic.loadUi(resource_path("./guiPagesLightMode/emailPopUp.ui"), self)
+        else:
+                uic.loadUi(resource_path("./guiPagesDarktMode/emailPopUp.ui"), self)
 
         # Show Window
         self.show()

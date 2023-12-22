@@ -31,6 +31,13 @@
      <height>600</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background: qlineargradient(
+    x1: 0, y1: 0, x2: 1, y2: 1,
+    stop: 0 rgba(39, 113, 90, 1), stop: 1 rgba(210, 254, 254, 1)
+);
+</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
@@ -45,6 +52,11 @@
       <width>400</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;
+color: white;
+</string>
     </property>
     <property name="text">
      <string>V 1.0</string>
@@ -61,6 +73,10 @@
       <width>400</width>
       <height>50</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;
+color: white;</string>
     </property>
     <property name="text">
      <string>Tune your instrument and improve 
@@ -86,16 +102,16 @@ your pitch by using PerfectPitch.</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(244, 249, 250);
-border: none;
-color: black;</string>
+     <string notr="true">background: none;
+border: None;
+</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../images/icon_blueBackground.png</normaloff>../images/icon_blueBackground.png</iconset>
+      <normaloff>../images/icon.png</normaloff>../images/icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>

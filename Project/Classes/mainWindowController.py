@@ -7,22 +7,6 @@ import numpy as np
 class Ui_MainWindow(QMainWindow):
     def __init__(self, initialWindow):
         super(Ui_MainWindow, self).__init__()
-        ####################### /DELETE it's for testing/ #######################
-        freq = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 500, 570, 620] # C4, D4, E4, F4, G4, A4, B4
-        for i in range(0, 9):
-            noteNumber = perfectPitch.processingManager.calculatePitch(freq[i])
-            musicNote = perfectPitch.processingManager.createMusicNote(
-                noteNumber,
-                "",
-                0,
-                125,
-                0,
-                44100,
-                1
-            )
-            perfectPitch.musicSheetManager.addMusicNote(musicNote)
-        ####################### // #######################
-
 
         # Define Variables
         self.yStartNote = 230 # y coordinate when note is on C line
@@ -32,7 +16,10 @@ class Ui_MainWindow(QMainWindow):
         self.notesDisplay = [] # Contains notas as a lable from the gui
 
         # Load .ui file
-        uic.loadUi(resource_path("./guiPages/mainWindow.ui"), self)
+        if perfectPitch.mode == "light":
+            uic.loadUi(resource_path("guiPagesLightMode/mainWindow.ui"), self)
+        else:
+            uic.loadUi(resource_path("guiPagesDarkMode/mainWindow.ui"), self)
 
         # Define Widgets
         self.clearSheetButton = self.findChild(QPushButton, "clearSheetButton")
@@ -81,23 +68,20 @@ class Ui_MainWindow(QMainWindow):
         if self.recordingLabel.text() == "Recording": # If recording, stops recording
             self.recordingLabel.setText("Not recording")
             icon1 = QtGui.QIcon()
-            icon1.addPixmap(QtGui.QPixmap(resource_path("./images/microoff.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon1.addPixmap(QtGui.QPixmap(resource_path("images/microphoneOff.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon1)
-            self.timer.stop()
-            perfectPitch.stopRecording()
+            #self.timer.stop()
+            #perfectPitch.stopRecording()
 
         else : # If not recording, star recording
             self.recordingLabel.setText("Recording")
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(resource_path("./images/microon.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon.addPixmap(QtGui.QPixmap(resource_path("images/microphoneOn.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon)
 
-            # TODO : Init record thread, when finished signals processing thread
-            
-            # TODO : Init processing thread when finished signals display thread
 
-            self.timer.start(int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
-            perfectPitch.startRecording()
+            #self.timer.start(int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
+            #perfectPitch.startRecording()
 
 
     def updateSheet(self, musicSheet):
@@ -117,7 +101,7 @@ class Ui_MainWindow(QMainWindow):
         note = QLabel(self.mainWindowFrame)
         note.setGeometry(QtCore.QRect(xCor, yCor, 70, 137))
         note.setText("")
-        note.setPixmap(QtGui.QPixmap(resource_path("./images/seminima1.png")))
+        note.setPixmap(QtGui.QPixmap(resource_path("images/seminima.png")))
         note.setScaledContents(True)
         note.setObjectName("note1")
         note.setStyleSheet("background: none;")
