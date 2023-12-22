@@ -93,7 +93,7 @@ class ProcessingManager:
         else:
             return False # Not noise
         
-    def processSegment(self, audio_queue, event, stop_threads):
+    def processSegment(self, audio_queue, note_queue, event, stop_threads):
         while not stop_threads.is_set():
             event.wait() # Wait for audio data
             print("Debug: ProcessingSegment init")
@@ -120,10 +120,9 @@ class ProcessingManager:
             if total != 0: # If it is a musical sound, creates a music note
                 print("Note: ", self.calculatePitch(sum/total))
                 event.clear()
-                #return self.createMusicNote(self.calculatePitch(sum/total), None, 0, sum/total, zcr, self.sampleFrequency, self.windowSize)
+                note_queue.put(self.createMusicNote(self.calculatePitch(sum/total), None, 0, sum/total, zcr, self.sampleFrequency, self.windowSize))
             else:
                 event.clear()
-                #return None
 
             
             

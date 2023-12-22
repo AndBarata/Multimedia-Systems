@@ -1,13 +1,15 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 from PyQt5 import uic, QtGui, QtCore
 from main import resource_path, perfectPitch
-import threading
 import numpy as np
+from datetime import datetime # Debug
+
 
 class Ui_MainWindow(QMainWindow):
     def __init__(self, initialWindow):
         super(Ui_MainWindow, self).__init__()
         ####################### /DELETE it's for testing/ #######################
+        '''
         freq = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 500, 570, 620] # C4, D4, E4, F4, G4, A4, B4
         for i in range(0, 9):
             noteNumber = perfectPitch.processingManager.calculatePitch(freq[i])
@@ -21,6 +23,7 @@ class Ui_MainWindow(QMainWindow):
                 1
             )
             perfectPitch.musicSheetManager.addMusicNote(musicNote)
+        '''
         ####################### // #######################
 
 
@@ -92,15 +95,14 @@ class Ui_MainWindow(QMainWindow):
             icon.addPixmap(QtGui.QPixmap(resource_path("./images/microon.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.microphoneButton.setIcon(icon)
 
-            # TODO : Init record thread, when finished signals processing thread
-            
-            # TODO : Init processing thread when finished signals display thread
-
             self.timer.start(int(np.floor(perfectPitch.musicSheetManager.getUpdateFrequency()*1000)))
+            
             perfectPitch.startRecording()
 
 
     def updateSheet(self, musicSheet):
+        print("Debgu time: ", datetime.now())
+        perfectPitch.musicSheetManager.addMusicNote(perfectPitch.note_queue.get())
         for note in self.notesDisplay:
             note.hide()
         

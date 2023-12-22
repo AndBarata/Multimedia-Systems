@@ -62,6 +62,7 @@ class MusicSheetManager:
         self._updateFrequency = newUpdateFrequency
 
     def addMusicNote(self, newNote):
+        print("DEBUG NOTE: ", newNote.getPitch())
         self.sheet.allNotes.append(newNote)             # Add note to list of all notes
         if len(self.sheet.getNotes()) < self.sheet.maxDisplayLength:    # If sheet is not full
             self.sheet.notesOnDisplay.append(newNote)
