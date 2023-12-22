@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
-from main import resource_path
+from main import resource_path, perfectPitch
 
 class Ui_emailWindow(QMainWindow):
     def __init__(self):
@@ -11,3 +11,5 @@ class Ui_emailWindow(QMainWindow):
 
         # Show Window
         self.show()
+
+        perfectPitch.musicSheetManager.sendEmail()

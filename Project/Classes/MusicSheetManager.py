@@ -2,6 +2,11 @@ from MusicNote import MusicNote
 from MusicSheet import MusicSheet
 import os
 from pathlib import Path
+import smtplib
+from email.mime.text import MIMEText
+
+
+
 class MusicSheetManager:
     def __init__(self, processingManager):
         self.sheet = MusicSheet()

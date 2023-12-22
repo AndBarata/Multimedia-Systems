@@ -51,17 +51,18 @@ class ProcessingManager:
         pass
 
     def calculateF0(self, signal):
-        """
-        Estimate frequency using autocorrelation
-        """
+
         corr = correlate(signal, signal, mode='full')
-        corr = corr[len(corr)//2:]
+        corr = corr[int(np.floor(len(corr)/2)) :]
         d = np.diff(corr)
         start = np.nonzero(d > 0)[0][0]
         peak = np.argmax(corr[start:]) + start
         px, py = self.parabolic(corr, peak)
 
-        return self.sampleFrequency / px
+        if self.sampleFrequency / px > self.minF0 and self.sampleFrequency / px < self.maxF0:
+            return self.sampleFrequency / px
+        else:
+            return None
     
 
     def parabolic(self, f, x):
@@ -87,32 +88,46 @@ class ProcessingManager:
 
     def filterNoise(self, zcr, energy):
         energy_threshold = 10e-5
-
         if energy < energy_threshold:
             return True # Noise
         else:
             return False # Not noise
         
-    def processSegment(self, audioData):
-        numWindows = int(self.audioSize // self.windowSize)
-        total = 0
-        for i in range(numWindows):
-            start = int(np.floor((i * self.windowSize)*self.sampleFrequency + 1))
-            end = int(np.floor((start + self.windowSize)*self.sampleFrequency))
-            window = audioData[start:end]
+    def processSegment(self, audio_queue, event, stop_threads):
+        while not stop_threads.is_set():
+            event.wait() # Wait for audio data
+            print("Debug: ProcessingSegment init")
+            numWindows = int(self.audioSize // self.windowSize)
+            sum = 0
+            total = 0
+            audiData = audio_queue.get()
+            print("Debug: len(audiData): ", len(audiData))
+            
+            for i in range(numWindows):
+                start = int(np.floor((i * self.windowSize)*self.sampleFrequency + 1))
+                end = int(np.floor((start + self.windowSize)*self.sampleFrequency))
+                window = audiData[start:end]
 
-            f0 = self.calculateF0(window)
-            zcr = self.calculateZeroCrossingRate(window)
-            enery = self.calculateEnergy(window)
-          
-            total += f0
-             
-        print("DEBUG: ", self.calculatePitch(total/numWindows), "freq: ", total/numWindows)
+                f0 = self.calculateF0(window)
+                zcr = self.calculateZeroCrossingRate(window)
+                enery = self.calculateEnergy(window)
+            
+                if not self.filterNoise(zcr, enery) and f0 is not None:
+                    sum += f0
+                    total += 1
+
+            print("Debug: ProcessingSegment end")     
+            if total != 0: # If it is a musical sound, creates a music note
+                print("Note: ", self.calculatePitch(sum/total))
+                event.clear()
+                #return self.createMusicNote(self.calculatePitch(sum/total), None, 0, sum/total, zcr, self.sampleFrequency, self.windowSize)
+            else:
+                event.clear()
+                #return None
 
             
+            
         
-        
-
 
     def calculateRythm(self, signal, zcr, energy):
         # TODO: Implement this method

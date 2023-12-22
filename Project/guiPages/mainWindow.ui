@@ -102,6 +102,9 @@ background: none;</string>
        <height>2</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
      </property>
@@ -117,6 +120,9 @@ background: none;</string>
        <width>500</width>
        <height>2</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -134,6 +140,9 @@ background: none;</string>
        <height>2</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
      </property>
@@ -149,6 +158,9 @@ background: none;</string>
        <width>500</width>
        <height>2</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -167,7 +179,7 @@ background: none;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-color: black;</string>
+      <string notr="true">color: black;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>

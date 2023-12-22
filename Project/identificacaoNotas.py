@@ -6,7 +6,7 @@ import queue
 import time  
 
 # Global variable to store aquired audio data
-audioData = []
+#audioData = []
 
 # Identify if the audio data is noise or not
 # TODO : Add ZCR threshold
