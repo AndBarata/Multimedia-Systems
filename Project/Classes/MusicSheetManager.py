@@ -3,8 +3,8 @@ from MusicSheet import MusicSheet
 import os
 from pathlib import Path
 import smtplib
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
 
 
 class MusicSheetManager:
@@ -99,3 +99,65 @@ class MusicSheetManager:
             return os.path.join(os.path.join(os.environ['USERPROFILE']), 'Downloads')
         else:  # For macOS and Linux
             return str(Path.home() / 'Downloads')
+        
+        
+        
+    '''def sendEmail(self,to_email):
+        smtp_server = 'smtp.gmail.com'
+        smtp_port = 587
+        smtp_username = 'perfect.pitch.feup@gmail.com'
+        smtp_password = 'wwiv wnzc cphf qbuh'
+
+        from_email = 'perfect.pitch.FEUP@gmail.com'
+        #to_email = 'andreazevedo2257@gmail.com'
+        subject = 'Hello, world!'
+        body = 'This is a test email.'
+
+        message = f'Subject: {subject}\n\n{body}'
+
+        with smtplib.SMTP(smtp_server, smtp_port) as smtp:
+            smtp.starttls()
+            smtp.login(smtp_username, smtp_password)           
+            smtp.sendmail(from_email, to_email, message)'''
+            
+    def sendEmail(self, to_email):
+        smtp_server = 'smtp.gmail.com'
+        smtp_port = 587
+        smtp_username = 'perfect.pitch.feup@gmail.com'
+        smtp_password = 'wwiv wnzc cphf qbuh'
+        
+
+        from_email = 'perfect.pitch.FEUP@gmail.com'
+        subject = 'Hello, world!'
+        body = 'This is a test email.'
+
+        # Criar arquivo de texto
+        file_path = 'texto.txt'
+        with open(file_path, 'w') as f:
+            for note in self.sheet.getNotes():
+                pitch = self.pitchList[note.getPitch()]
+                f.write(f'{pitch}\n')
+            
+
+        # Configurar o e-mail MIME multipart
+        message = MIMEMultipart()
+        message['From'] = from_email
+        message['To'] = to_email
+        message['Subject'] = subject
+        message.attach(MIMEText(body, 'plain'))
+
+        # Anexar o arquivo de texto
+        with open(file_path, 'r') as file:
+            attachment = MIMEText(file.read())
+            attachment.add_header('Content-Disposition', 'attachment', filename='texto.txt')
+            message.attach(attachment)
+
+        # Conectar ao servidor SMTP e enviar e-mail
+        with smtplib.SMTP(smtp_server, smtp_port) as smtp:
+            smtp.starttls()
+            smtp.login(smtp_username, smtp_password)
+            smtp.sendmail(from_email, to_email, message.as_string())
+
+        # Excluir o arquivo depois de enviá-lo
+        os.remove(file_path)
+                
